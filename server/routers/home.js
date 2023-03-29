@@ -1,8 +1,7 @@
 const { Router } = require("express")
 const app = Router()
+const homeController = require("../controllers/homeController")
 
-app.get("/", (req, res) => {
-    res.json("Home Data!")
-})
+app.get("/", homeController)
 
 module.exports = app
