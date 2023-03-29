@@ -1,5 +1,5 @@
 const { Router } = require('express')
-const { db } = require("../config/db.config")
+const { pool } = require("../config/db.config")
 const router = Router()
 
 router.post("/signup", (req, res) => {
@@ -10,7 +10,7 @@ router.post("/signup", (req, res) => {
         req.body.email
     ]
 
-    db.query(q, [ userData ], (err, data) => {
+    pool.query(q, [ userData ], (err, data) => {
         if (err) return res.json(err)
         return res.json(data)
     })
