@@ -1,5 +1,6 @@
 const express = require("express")
-const cors = require('cors')
+// const cors = require('cors')
+const { corsMW } = require("./middleware/cors")
 require('dotenv').config()
 const { 
     home, getBooks, delBook, updateBook, addUser, showUser, addBooks
@@ -7,10 +8,8 @@ const {
 
 const app = express()
 
-// middlewares
-app.use(cors())
+app.use(corsMW)
 app.use(express.json())
-
 app.use(
     home,
     getBooks,
