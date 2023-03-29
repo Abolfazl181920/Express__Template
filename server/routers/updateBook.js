@@ -1,6 +1,6 @@
 const { Router } = require("express")
 const router = Router()
-const { db } = require("../config/db.config")
+const { pool } = require("../config/db.config")
 
 router.put("/book/:id", (req, res) => {
     const bookId = req.params.id
@@ -12,7 +12,7 @@ router.put("/book/:id", (req, res) => {
         req.body.price
     ]
 
-    db.query(q, [ ...values, bookId ], (err, data) => {
+    pool.query(q, [ ...values, bookId ], (err, data) => {
         if (err) return res.json(err)
         return res.json(data)
     })

@@ -1,6 +1,6 @@
 const { Router } = require("express")
 const router = Router()
-const { db } = require("../config/db.config")
+const { pool } = require("../config/db.config")
 
 router.post("/books", (req, res) => {
     const q = "INSERT INTO booksdb.books (`title`, `descr`, `price`) VALUES (?)"
@@ -10,7 +10,7 @@ router.post("/books", (req, res) => {
         req.body.price
     ]
 
-    db.query(q, [ values ], (err, data) => {
+    pool.query(q, [ values ], (err, data) => {
         if (err) return res.json(err)
         return res.json(data)
     })

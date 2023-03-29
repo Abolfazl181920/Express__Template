@@ -1,17 +1,17 @@
-const homeRouter = require("../routers/home")
-const getBooksRouter = require("../routers/books[get]")
-const postBooksRouter = require("../routers/books[post]")
-const deleteBooksRouter = require("../routers/books[delete]")
-const putBooksRouter = require("../routers/books[put]")
-const postSignupRouter = require("../routers/signup[post]")
-const postSigninRouter = require("../routers/signin[post]")
+const home = require("../routers/home")
+const getBooks = require("../routers/getBooks")
+const addBooks = require("../routers/addBook")
+const delBook = require("./delBook")
+const updateBook = require("../routers/updateBook")
+const addUser = require("../routers/addUser")
+const showUser = require("../routers/showUser")
 
 module.exports = {
-    homeRouter,
-    getBooksRouter,
-    postBooksRouter,
-    deleteBooksRouter,
-    putBooksRouter,
-    postSignupRouter,
-    postSigninRouter
+    home,
+    getBooks,
+    addBooks,
+    delBook,
+    updateBook,
+    addUser,
+    showUser
 }
