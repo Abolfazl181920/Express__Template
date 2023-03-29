@@ -1,5 +1,5 @@
 const express = require("express")
-// const cors = require('cors')
+const { jsonMW } = require("./middleware/json")
 const { corsMW } = require("./middleware/cors")
 require('dotenv').config()
 const { 
@@ -9,7 +9,7 @@ const {
 const app = express()
 
 app.use(corsMW)
-app.use(express.json())
+app.use(jsonMW)
 app.use(
     home,
     getBooks,
