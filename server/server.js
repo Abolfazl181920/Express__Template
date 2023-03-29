@@ -11,7 +11,6 @@ const app = express()
 
 app.use(corsMW)
 app.use(jsonMW)
-app.use(errorHandler)
 app.use(
     home,
     getBooks,
@@ -20,6 +19,8 @@ app.use(
     addBooks,
     addUser,
     showUser
-)
+    )
+    
+app.use(errorHandler)
 
 app.listen(3001, () => console.log('server is running on port 3001!'))
