@@ -1,12 +1,14 @@
 const express = require("express")
-const { jsonMW } = require("./middleware/json")
-const { corsMW } = require("./middleware/cors")
-const { errorHandler } = require("./middleware/errorhandler")
-require('dotenv').config()
+const { 
+    corsMW,
+    errorHandler,
+    jsonMW 
+} = require("./middleware/index")
 const { 
     home, getBooks, delBook, updateBook, addUser, showUser, addBooks
 } = require("./routers/index")
 
+require('dotenv').config()
 const app = express()
 
 app.use(corsMW)
