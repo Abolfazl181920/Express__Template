@@ -1,8 +1,9 @@
 const { Router } = require("express")
 const app = Router()
 const homeController = require("../controllers/homeController")
-// import logger from '../logs/logger'
-// logger.info("Hello visiter!")
+const { logger } = require("../logs/logger")
+
 app.get("/", homeController)
+logger.info("Home req is working")
 
 module.exports = app
